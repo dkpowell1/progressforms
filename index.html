@@ -1,0 +1,207 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Progress Form Demo</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/progressbar.css">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<div class="container" id="progressFormWrapper">
+		<fieldset>
+			<legend>Personal Information</legend>
+			<div class="fieldgroup">
+				<label for="name">Name:</label>
+				<input name="name" id="name" required>
+				<span class="required">(required)</span>
+			</div>
+			<div class="fieldgroup">
+				<label for="email">Email:</label>
+				<input name="email" id="email" type="email" required>
+				<span class="required">(required)</span>
+			</div>
+			<div class="fieldgroup">
+				<label for="username">Username:</label>
+				<input name="username" id="username" required>
+				<span class="required">(required)</span>
+			</div>
+			<div class="fieldgroup">
+				<label for="password">Password:</label>
+				<input name="password" id="password" type="password" required>
+				<span class="required">(required)</span>
+			</div>
+			<div class="fieldgroup">
+				<label for="confirmpassword">Confirm Password:</label>
+				<input name="confirmpassword" id="confirmpassword" type="password" required>
+				<span class="required">(required)</span>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Address/Contact Information</legend>
+			<div class="fieldgroup">
+				<label for="country">Country</label>
+				<input name="country" id="country" required>
+				<span class="required">(required)</span>
+			</div>
+			<div class="fieldgroup">
+				<label for="addressLine1">Address Line 1:</label>
+				<input name="addressLine1" id="addressLine1" class="lg" required>
+				<span class="required">(required)</span>
+			</div>
+			<div class="fieldgroup">
+				<label for="addressLine2">Address Line 2:</label>
+				<input name="addressLine2" id="addressLine2" class="lg">
+			</div>
+			<div class="fieldgroup">
+				<label for="city">City:</label>
+				<input name="city" id="city" required>
+				<span class="required">(required)</span>
+			</div>
+			<div class="fieldgroup">
+				<label for="state">State:</label>
+				<select name="state" id="state" required>
+					<option value></option>
+					<option value="Alaska">Alaska</option>
+					<option value="Arkansas">Arkansas</option>
+					<option value="California">California</option>
+					<option value="North Carolina">North Carolina</option>
+					<option value="Virginia">Virginia</option>
+				</select>
+				<span class="required">(required)</span>
+			</div>
+			<div class="fieldgroup">
+				<label for="zip">Zip Code:</label>
+				<input name="zip" id="zip" class="sm" required>
+				<span class="required">(required)</span>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Education Information</legend>
+			<div class="fieldgroup">
+				<label for="hispanic" class="full">Are you hispanic? <span class="required">(required)</span></label>
+				<select name="hispanic" id="hispanic" required>
+					<option value></option>
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+				</select>
+			</div>
+			<div class="fieldgroup" data-required>
+				<label class="full">What is your ethnicity? <span class="required">(Select one or more)</span></label>
+				<div class="row">
+					<div class="col col-3">
+						<input type="checkbox" name="white" id="white">
+						<label for="white">White</label>
+					</div>
+					<div class="col col-3">
+						<input type="checkbox" name="black" id="black">
+						<label for="black">Black</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col col-3">
+						<input type="checkbox" name="asian" id="asian">
+						<label for="asian">Asian</label>
+					</div>
+					<div class="col col-3">
+						<input type="checkbox" name="indian" id="indian">
+						<label for="indian">Indian</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col col-3">
+						<input type="checkbox" name="other" id="other">
+						<label for="indian">other</label>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Demographic Information</legend>
+			<div class="fieldgroup">
+				<label for="hispanic" class="full">Are you hispanic? <span class="required">(required)</span></label>
+				<select name="hispanic" id="hispanic" required>
+					<option value></option>
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+				</select>
+			</div>
+			<div class="fieldgroup" data-required>
+				<label class="full">What is your ethnicity? <span class="required">(Select one or more)</span></label>
+				<div class="row">
+					<div class="col col-3">
+						<input type="checkbox" name="white" id="white">
+						<label for="white">White</label>
+					</div>
+					<div class="col col-3">
+						<input type="checkbox" name="black" id="black">
+						<label for="black">Black</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col col-3">
+						<input type="checkbox" name="asian" id="asian">
+						<label for="asian">Asian</label>
+					</div>
+					<div class="col col-3">
+						<input type="checkbox" name="indian" id="indian">
+						<label for="indian">Indian</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col col-3">
+						<input type="checkbox" name="other" id="other">
+						<label for="indian">other</label>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Your Interests</legend>
+			<div class="fieldgroup">
+				<label for="hispanic" class="full">Are you hispanic? <span class="required">(required)</span></label>
+				<select name="hispanic" id="hispanic" required>
+					<option value></option>
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+				</select>
+			</div>
+			<div class="fieldgroup" data-required>
+				<label class="full">What is your ethnicity? <span class="required">(Select one or more)</span></label>
+				<div class="row">
+					<div class="col col-3">
+						<input type="checkbox" name="white" id="white">
+						<label for="white">White</label>
+					</div>
+					<div class="col col-3">
+						<input type="checkbox" name="black" id="black">
+						<label for="black">Black</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col col-3">
+						<input type="checkbox" name="asian" id="asian">
+						<label for="asian">Asian</label>
+					</div>
+					<div class="col col-3">
+						<input type="checkbox" name="indian" id="indian">
+						<label for="indian">Indian</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col col-3">
+						<input type="checkbox" name="other" id="other">
+						<label for="indian">other</label>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<button class="submit">Submit</button>
+		</fieldset>
+	</div>
+
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="js/jquery.progressforms.js"></script>
+	<script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800);
+
+* {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding-top: 35px;
+}
+
+fieldset {
+    border: 0;
+}
+
+fieldset legend {
+    font-size: 23px;
+}
+
+fieldset > div {
+    margin-left: 20px;
+}
+
+input,
+input[type='text'],
+input[type='email'],
+input[type='password'],
+select {
+    padding: 5px 3px;
+
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}
+
+select {
+    background: #fff;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.fieldgroup {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.fieldgroup label {
+    font-size: 12px;
+
+    display: inline-block;
+
+    width: 160px;
+}
+
+.sm {
+    width: 80px;
+}
+
+.lg {
+    width: 350px;
+}
+
+label.full {
+    width: 100%;
+}
+
+.col-3 {
+    width: 33.33%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col {
+    float: left;
+}
+
+.row:after {
+    display: table;
+    clear: both;
+
+    content: ' ';
+}
+.right {
+    float: right;
+}
+.required {
+    font-size: 10px;
+
+    color: #c00;
+}
