@@ -1,6 +1,7 @@
 (function($) {
 	$.fn.progressforms = function(options) {
 		var defaultOptions = {
+			validateRequired: true,
 			tabs: [],
 			onValidateRequiredFailed: function(notFilled) {
 				alert("Please fill out all required fields!");
@@ -97,7 +98,8 @@
 		}
 
 		function onNextClick() {
-			var notFilled = validateRequiredFields(currentFieldset);
+			var notFilled = settings.validateRequired ? validateRequiredFields(currentFieldset)
+											          : false;
 
 			// Prevent current index from gettings higher than range of fieldsets
 			if (currentIndex + 1 >= fieldsets.length) {
