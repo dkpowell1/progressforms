@@ -6,6 +6,15 @@
 		var settings = $.extend(true, {
 			tabs: [],
 			validateRequired: true,
+
+			/**
+			 * Set this in order to override the default check per page
+			 *
+			 * The signature of the functions passed in should be
+			 *     function(currentFieldset):boolean
+			 */
+			validateRequiredFunctions: [],
+
 			callbacks:  {
 				onNext: function(tabClicked, tabEntered) { },
 				onPrev: function(tabClicked, tabEntered) { },
@@ -142,6 +151,8 @@
 
 		function validateRequiredFields(fieldset) {
 			var notFilled;
+			var valid = true;
+
 			var requiredFields = $(fieldset).find('[required]');
 			var i = 0;
 
@@ -170,6 +181,10 @@
 						notFilled = $(checkboxes[0]);
 					}
 				}
+			}
+
+			if (!notFilled && typeof settings.validateRequiredFunctions[currentIndex] == 'function') {
+				notFilled = settings.validateRequiredFunctions[currentIndex](fieldset);
 			}
 
 			return notFilled;
