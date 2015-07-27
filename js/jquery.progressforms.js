@@ -219,19 +219,23 @@
 		function addPrevNextButtons() {
 			var prevButtonFields = { text: "Previous", classes: "previous" };
 			var nextButtonFields = { text: "Next", classes: "next" };
+
 			for (var i = 0; i < fieldsets.length; i++) {
+				var nextPrevBar = $('<div class="progressforms-next-prev-bar">');
 				if (i === 0) {
 					// Only add next
-					$(fieldsets[i]).append(createNextButton());
+					nextPrevBar.append(createNextButton());
 				} else if (i === fieldsets.length - 1) {
 					// Only add previous
-					$(fieldsets[i]).append(createPrevButton());
+					nextPrevBar.append(createPrevButton());
 				} else {
 					// Add next and previous
-					$(fieldsets[i]).append(createPrevButton());
-					$(fieldsets[i]).append(createNextButton());
+					nextPrevBar.append(createPrevButton());
+					nextPrevBar.append(createNextButton());
 				}
+				$(fieldsets[i]).append(nextPrevBar);
 			}
+
 		}
 
 		init();
