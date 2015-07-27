@@ -109,7 +109,7 @@
 				text: "Next",
 				classes: "next"
 			}, options);
-			return $('<button></button>').addClass(options.classes).html(options.text);
+			return $('<button type="button"></button>').addClass(options.classes).html(options.text);
 		}
 
 		function createNextButton() {
