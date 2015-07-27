@@ -9,6 +9,10 @@ body {
     padding-top: 35px;
 }
 
+label {
+    width: 160px;
+}
+
 fieldset {
     border: 0;
 }
@@ -27,6 +31,12 @@ input[type='email'],
 input[type='password'],
 select {
     padding: 5px 3px;
+
+    -webkit-transition: border-color .3s;
+       -moz-transition: border-color .3s;
+        -ms-transition: border-color .3s;
+         -o-transition: border-color .3s;
+            transition: border-color .3s;
 
     border: 1px solid lightgray;
     border-radius: 3px;
@@ -50,12 +60,14 @@ select {
     font-size: 12px;
 
     display: inline-block;
-
-    width: 160px;
 }
 
 .sm {
     width: 80px;
+}
+
+.md {
+    width: 220px;
 }
 
 .lg {
@@ -65,7 +77,9 @@ select {
 label.full {
     width: 100%;
 }
-
+label.auto {
+    width: auto;
+}
 .col-3 {
     width: 33.33%;
 }
@@ -90,5 +104,112 @@ label.full {
 .required {
     font-size: 10px;
 
+    color: #c00;
+}
+input.date.month,
+input.date.day {
+    width: 40px;
+}
+input.date.year {
+    width: 80px;
+}
+
+input.validate-failed,
+input.validate-failed:focus {
+    border-color: #c00;
+    outline: none;
+    box-shadow: 0 0 10px #c00;
+}
+ul.no-style,
+ul.todo-list {
+    padding: 0;
+
+    list-style-type: none;
+}
+.todo-list label.checkbox {
+    font-size: 13px;
+    line-height: 27px;
+
+    position: relative;
+
+    display: block;
+
+    margin-bottom: 4px;
+    padding-left: 27px;
+
+    cursor: pointer;
+
+    color: #404040;
+}
+.todo-list label.checkbox [type='checkbox'] {
+    position: absolute;
+    left: -9999px;
+}
+.todo-list label.checkbox input + i {
+    position: absolute;
+    top: 5px;
+    left: 0;
+
+    display: block;
+
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+
+    -webkit-transition: border-color .3s;
+       -moz-transition: border-color .3s;
+        -ms-transition: border-color .3s;
+         -o-transition: border-color .3s;
+            transition: border-color .3s;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: #b4b4b4;
+    outline: none;
+    background: #fff;
+}
+.todo-list label.checkbox input + i:after {
+    font: normal 12px/16px FontAwesome !important;
+
+    position: absolute;
+    top: -1px;
+    left: -2px;
+
+    width: 15px;
+    height: 15px;
+
+    content: '\f00c';
+    -webkit-transition: opacity .3s;
+       -moz-transition: opacity .3s;
+        -ms-transition: opacity .3s;
+         -o-transition: opacity .3s;
+            transition: opacity .3s;
+    text-align: center;
+
+    opacity: 0;
+    color: #c00;
+}
+.todo-list label.checkbox input:checked + i:after {
+    opacity: 1;
+}
+.todo-list label.checkbox input:checked + i {
+    border-color: #c00;
+}
+.todo-list > li {
+    margin: 15px 0;
+    padding: 0 15px;
+}
+.todo-list > li:not(:last-child) {
+    border-bottom: 1px solid lightgray;
+}
+.todo-list-wrapper {
+    margin: 0;
+}
+.todo-list-item b {
+    display: inline-block;
+
+    width: 250px;
+}
+.todo-list-item-content {
     color: #c00;
 }
