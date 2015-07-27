@@ -157,7 +157,7 @@
 			var i = 0;
 
 			for (i = 0; i < requiredFields.length && notFilled === undefined; i++) {
-				if ($(requiredFields[i]).val() === '') {
+				if ($(requiredFields[i]).is(':visible') && $(requiredFields[i]).val() === '') {
 					notFilled = $(requiredFields[i]);
 				}
 			}
