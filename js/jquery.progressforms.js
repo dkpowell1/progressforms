@@ -16,6 +16,7 @@
 			validateRequiredFunctions: [],
 
 			callbacks:  {
+				onInit: function() { },
 				onNext: function(tabClicked, tabEntered) { },
 				onPrev: function(tabClicked, tabEntered) { },
 				onLastTabEntered: function() { },
@@ -83,6 +84,8 @@
 			setListSize();
 			addPrevNextButtons();
 			container.addClass('progressformswrapper');
+
+			settings.callbacks.onInit();
 		}
 
 		function setListSize() {
