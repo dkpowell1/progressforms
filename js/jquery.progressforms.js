@@ -1,35 +1,38 @@
 (function($) {
 	$.fn.progressforms = function(options) {
-		var defaultOptions = {
-			validateRequired: true,
-			tabs: [],
-			onValidateRequiredFailed: function(notFilled) {
-				alert("Please fill out all required fields!");
-				notFilled.focus();
-			}
-		};
-
 		/**
 		 * Settings for the plugin
 		 */
-		var settings = $.extend(defaultOptions, options);
+		var settings = $.extend(true, {
+			tabs: [],
+			validateRequired: true,
+			callbacks:  {
+				onNext: function(tabClicked, tabEntered) { },
+				onPrev: function(tabClicked, tabEntered) { },
+				onLastTabEntered: function() { },
+				onValidateRequiredFailed: function(notFilled) {
+					alert("Please fill out all required fields!");
+					notFilled.focus();
+				}
+			}
+		}, options);
 
 		/**
 		 * All fieldsets in the container (the element where the plugin was
 		 * initialized at)
 		 */
-		var fieldsets = $(this).find('fieldset');
+		var fieldsets;
 
 		/**
 		 * This is the generated progress bar from the tabs field in the
 		 * settings
 		 */
-		var progressBar = generateProgressBar();
+		var progressBar;
 
 		/**
 		 * All dots that mark progress of the form
 		 */
-		var progressBarDots = progressBar.find('li');
+		var progressBarDots;
 
 		/**
 		 * The element where the plugin was initialized at
@@ -44,21 +47,30 @@
 		/**
 		 * The current visible fieldset
 		 */
-		var currentFieldset = $(fieldsets[0]);
+		var currentFieldset;
 
 		/**
 		 * The fieldset before the current one
 		 */
 		var previousFieldset;
 
+		/**
+		 * Fieldset with the confirmation message
+		 */
+		var confirmationFieldset;
 
 		function init() {
-			container.prepend(progressBar);
+			fieldsets = container.find('fieldset');
 			for (var i = 0; i < fieldsets.length; i++) {
 				if (i !== 0) {
 					$(fieldsets[i]).hide();
 				}
 			}
+
+			currentFieldset = $(fieldsets[0]);
+			progressBar = generateProgressBar();
+			progressBarDots = progressBar.find('li');
+			container.prepend(progressBar);
 			setListSize();
 			addPrevNextButtons();
 			container.addClass('progressformswrapper');
@@ -105,10 +117,10 @@
 			if (currentIndex + 1 >= fieldsets.length) {
 				currentIndex--;
 			} else if (notFilled) {
-				settings.onValidateRequiredFailed(notFilled);
+				settings.callbacks.onValidateRequiredFailed(notFilled);
 			} else {
 				$(progressBarDots[currentIndex]).addClass('completed').removeClass('active');
-
+				var tabClicked = $(progressBar[currentIndex]);
 				// Increment the current index to the next fieldset
 				currentIndex++;
 
@@ -119,6 +131,12 @@
 				}
 				$(currentFieldset).show();
 				$(progressBarDots[currentIndex]).addClass('active');
+
+				settings.callbacks.onNext(tabClicked, currentFieldset);
+
+				if (currentIndex === fieldsets.length - 1) {
+					settings.callbacks.onLastTabEntered();
+				}
 			}
 		}
 
@@ -170,22 +188,24 @@
 				currentIndex++;
 			} else {
 				$(currentFieldset).hide();
+				var tabClicked = $(currentFieldset);
 				currentFieldset = previousFieldset;
 				previousFieldset = currentIndex > 0 ? fieldsets[currentIndex - 1] : undefined;
 				$(currentFieldset).show();
 				$(progressBarDots[currentIndex]).addClass('active').removeClass('completed');
+
+				settings.callbacks.onPrev(tabClicked, currentFieldset);
 			}
 		}
 
 		function addPrevNextButtons() {
 			var prevButtonFields = { text: "Previous", classes: "previous" };
 			var nextButtonFields = { text: "Next", classes: "next" };
-			var fieldsets = container.find('fieldset');
 			for (var i = 0; i < fieldsets.length; i++) {
 				if (i === 0) {
 					// Only add next
 					$(fieldsets[i]).append(createNextButton());
-				} else if (i === container.find('fieldset').length - 1) {
+				} else if (i === fieldsets.length - 1) {
 					// Only add previous
 					$(fieldsets[i]).append(createPrevButton());
 				} else {
