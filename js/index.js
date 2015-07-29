@@ -1,16 +1,10 @@
 $(function() {
 	$('#progressFormWrapper').progressforms({
 		tabs: ['Personal', 'Contact', 'Your Login', 'Confirmation'],
-		validateRequired: true,
+		validateRequired: false,
 		validateRequiredFunctions: [
 			// Checks that the emails are valid
 			function(fieldset) {
-				var emailField = $(fieldset.find('#email'));
-				var confirmEmailField = $(fieldset.find('#confirmemail'));
-				if (emailField.val() !== confirmEmailField.val()) {
-					alert('Emails must match!');
-					return emailField;
-				}
 			},
 			function(fieldset) { },
 			function(fieldset) {
