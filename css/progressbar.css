@@ -1,9 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
-/*Hide all except first fieldset*/
-.progressformswrapper fieldset:not(:first-of-type) {
-    display: none;
-}
-
 /*progressbar*/
 .progressBar {
     overflow: hidden;
