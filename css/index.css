@@ -92,3 +92,35 @@ label.full {
 
     color: #c00;
 }
+.next-prev-bar .next {
+    float: right;
+}
+.next-prev-bar .next:hover {
+    margin-right: 0;
+}
+.next-prev-bar .prev {
+    float: left;
+}
+.next-prev-bar .prev:hover {
+    margin-left: 0;
+}
+.next-prev-bar button {
+    font-size: 16px;
+
+    margin: 0 15px;
+
+    cursor: pointer;
+    cursor: hand;
+    -webkit-transition: margin .3s ease;
+            transition: margin .3s ease;
+
+    color: #c00;
+    border: 0;
+    outline: none;
+    background: #fff;
+}
+.next-prev-bar button i {
+    margin: 0 5px;
+
+    color: #333;
+}
