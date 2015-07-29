@@ -62,17 +62,17 @@
     /*connector not needed before the first step*/
     content: none;
 }
+.progressBar li.completed:before,
+.progressBar li.completed:after {
+    color: white;
+    background: #333;
+}
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 .progressBar li.active:before,
 .progressBar li.active:after {
     color: white;
     background: #c00;
-}
-.progressBar li.completed:before,
-.progressBar li.completed:after {
-    color: white;
-    background: #333;
 }
 .progressBar li.completed:before {
     font-family: FontAwesome !important;
