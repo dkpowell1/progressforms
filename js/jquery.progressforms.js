@@ -77,7 +77,19 @@
 			return container;
 		},
 		goToTab: function(index) {
-
+			if (index >= 0 && index < fieldsets.length) {
+				if (index > currentIndex) {
+					for (var i = currentIndex; i < index; i++) {
+						onNextClick();
+					}
+				} else {
+					for (var j = currentIndex - 1; j >= index; j--) {
+						onPrevClick();
+					}
+				}
+			} else {
+				$.error('There is no fieldset at index ' + index);
+			}
 		}
 	};
 
@@ -100,10 +112,27 @@
 	 */
 	function generateProgressBar() {
 		var progressBar = $('<ul class="progressBar"></ul>');
+		var onProgressItemClick = function() {
+			var listItems = container.find('.progressBar li');
+			for (var i = 0; i < listItems.length; i++) {
+				if (listItems[i] === this) {
+					if (i > currentIndex && settings.canClickForward) {
+						methods.goToTab(i);
+					} else if (i < currentIndex && settings.canClickBackward) {
+						methods.goToTab(i);
+					}
+					break;
+				}
+			}
+		};
+
 		for (var i = 0; i < settings.tabs.length; i++) {
 			var toAppend = $('<li>').html(settings.tabs[i]);
 			if (i === 0) {
 				toAppend.addClass('active');
+			}
+			if (settings.canClickForward || settings.canClickBackward) {
+				toAppend.click(onProgressItemClick);
 			}
 			progressBar.append(toAppend);
 		}
@@ -284,6 +313,10 @@
 	};
 
 	$.fn.progressforms.defaults = {
+		canClickForward: false,
+
+		canClickBackward: true,
+
 		/**
 		 * This array holds the names of each sub-form in the form
 		 */
