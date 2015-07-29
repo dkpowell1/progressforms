@@ -73,7 +73,7 @@
 		var confirmationFieldset;
 
 		function init() {
-			fieldsets = container.find('fieldset');
+			fieldsets = container.children('fieldset');
 			for (var i = 0; i < fieldsets.length; i++) {
 				if (i !== 0) {
 					$(fieldsets[i]).hide();
