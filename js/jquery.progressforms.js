@@ -116,7 +116,7 @@
 			var listItems = container.find('.progressBar li');
 			for (var i = 0; i < listItems.length; i++) {
 				if (listItems[i] === this) {
-					if (i > currentIndex && settings.canClickForward) {
+					if (i > currentIndex && settings.canClickForward && $(fieldsets[i]).data('previously-validated')) {
 						methods.goToTab(i);
 					} else if (i < currentIndex && settings.canClickBackward) {
 						methods.goToTab(i);
@@ -181,6 +181,7 @@
 			}
 			$(currentFieldset).show();
 			$(progressBarDots[currentIndex]).addClass('active');
+			$(previousFieldset).data('previously-validated', true);
 
 			settings.callbacks.onNext(tabClicked, currentFieldset);
 
@@ -273,7 +274,7 @@
 			currentFieldset = previousFieldset;
 			previousFieldset = currentIndex > 0 ? fieldsets[currentIndex - 1] : undefined;
 			$(currentFieldset).show();
-			$(progressBarDots[currentIndex]).addClass('active').removeClass('completed');
+			$(progressBarDots[currentIndex]).addClass('active');
 
 			settings.callbacks.onPrev(tabClicked, currentFieldset);
 		}
@@ -313,7 +314,7 @@
 	};
 
 	$.fn.progressforms.defaults = {
-		canClickForward: false,
+		canClickForward: true,
 
 		canClickBackward: true,
 
