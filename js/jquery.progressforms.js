@@ -11,7 +11,7 @@
 			 * Set this in order to override the default check per page
 			 *
 			 * The signature of the functions passed in should be
-			 *     function(currentFieldset):boolean
+			 *     function(currentFieldset):object
 			 */
 			validateRequiredFunctions: [],
 
@@ -23,6 +23,10 @@
 					alert("Please fill out all required fields!");
 					notFilled.focus();
 				}
+			},
+			ui: {
+				createNextButton: function() { return $('<button class="next">').html("Next"); },
+				createPrevButton: function() { return $('<button class="prev">').html("Previous"); }
 			}
 		}, options);
 
@@ -104,6 +108,7 @@
 			return progressBar;
 		}
 
+<<<<<<< master
 		function createButton(options) {
 			options = $.extend( {
 				text: "Next",
@@ -114,6 +119,10 @@
 
 		function createNextButton() {
 			var nextButton = createButton({ text: "Next", classes: "next" });
+=======
+		function _createNextButton() {
+			var nextButton = settings.ui.createNextButton();
+>>>>>>> local
 			nextButton.click(onNextClick);
 			return nextButton;
 		}
@@ -190,8 +199,8 @@
 			return notFilled;
 		}
 
-		function createPrevButton() {
-			var prevButton = createButton({ text: "Previous", classes: "previous" });
+		function _createPrevButton() {
+			var prevButton = settings.ui.createPrevButton();
 			prevButton.click(onPrevClick);
 			return prevButton;
 		}
@@ -214,11 +223,15 @@
 		}
 
 		function addPrevNextButtons() {
+<<<<<<< master
 			var prevButtonFields = { text: "Previous", classes: "previous" };
 			var nextButtonFields = { text: "Next", classes: "next" };
+=======
+>>>>>>> local
 			for (var i = 0; i < fieldsets.length; i++) {
 				if (i === 0) {
 					// Only add next
+<<<<<<< master
 					$(fieldsets[i]).append(createNextButton());
 				} else if (i === fieldsets.length - 1) {
 					// Only add previous
@@ -227,6 +240,16 @@
 					// Add next and previous
 					$(fieldsets[i]).append(createPrevButton());
 					$(fieldsets[i]).append(createNextButton());
+=======
+					nextPrevBar.append(_createNextButton());
+				} else if (i === fieldsets.length - 1) {
+					// Only add previous
+					nextPrevBar.append(_createPrevButton());
+				} else {
+					// Add next and previous
+					nextPrevBar.append(_createPrevButton());
+					nextPrevBar.append(_createNextButton());
+>>>>>>> local
 				}
 			}
 		}
