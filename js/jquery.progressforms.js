@@ -108,21 +108,8 @@
 			return progressBar;
 		}
 
-<<<<<<< master
-		function createButton(options) {
-			options = $.extend( {
-				text: "Next",
-				classes: "next"
-			}, options);
-			return $('<button></button>').addClass(options.classes).html(options.text);
-		}
-
-		function createNextButton() {
-			var nextButton = createButton({ text: "Next", classes: "next" });
-=======
 		function _createNextButton() {
 			var nextButton = settings.ui.createNextButton();
->>>>>>> local
 			nextButton.click(onNextClick);
 			return nextButton;
 		}
@@ -223,24 +210,9 @@
 		}
 
 		function addPrevNextButtons() {
-<<<<<<< master
-			var prevButtonFields = { text: "Previous", classes: "previous" };
-			var nextButtonFields = { text: "Next", classes: "next" };
-=======
->>>>>>> local
 			for (var i = 0; i < fieldsets.length; i++) {
 				if (i === 0) {
 					// Only add next
-<<<<<<< master
-					$(fieldsets[i]).append(createNextButton());
-				} else if (i === fieldsets.length - 1) {
-					// Only add previous
-					$(fieldsets[i]).append(createPrevButton());
-				} else {
-					// Add next and previous
-					$(fieldsets[i]).append(createPrevButton());
-					$(fieldsets[i]).append(createNextButton());
-=======
 					nextPrevBar.append(_createNextButton());
 				} else if (i === fieldsets.length - 1) {
 					// Only add previous
@@ -249,7 +221,6 @@
 					// Add next and previous
 					nextPrevBar.append(_createPrevButton());
 					nextPrevBar.append(_createNextButton());
->>>>>>> local
 				}
 			}
 		}
