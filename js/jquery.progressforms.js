@@ -211,6 +211,7 @@
 
 		function addPrevNextButtons() {
 			for (var i = 0; i < fieldsets.length; i++) {
+				var nextPrevBar = $('<div class="next-prev-bar">');
 				if (i === 0) {
 					// Only add next
 					nextPrevBar.append(_createNextButton());
@@ -222,6 +223,7 @@
 					nextPrevBar.append(_createPrevButton());
 					nextPrevBar.append(_createNextButton());
 				}
+				$(fieldsets[i]).append(nextPrevBar);
 			}
 		}
 
