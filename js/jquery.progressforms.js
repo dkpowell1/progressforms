@@ -352,10 +352,10 @@
 		},
 		ui: {
 			createNextButton: function() {
-				return $('<button class="next">').html("Next");
+				return $('<button type="button" class="next">').html("Next");
 			},
 			createPrevButton: function() {
-				return $('<button class="prev">').html("Previous");
+				return $('<button type="button" class="prev">').html("Previous");
 			}
 		}
 	};
