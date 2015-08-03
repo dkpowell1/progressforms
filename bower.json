@@ -1,0 +1,30 @@
+{
+  "name": "progressforms",
+  "version": "1.0.1",
+  "description": "JQuery plugin that splits a form into multiple steps with a progress bar",
+  "main": [
+    "src/jquery.progresforms.js"
+  ],
+  "keywords": [
+    "jquery",
+    "plugin",
+    "jquery-plugin",
+    "forms",
+    "progress",
+    "multi-step"
+  ],
+  "license": "MIT",
+  "authors": [
+    "Anthony Benavente <anthony.m.benavente@gmail.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.11.3"
+  }
+}
