@@ -126,6 +126,17 @@
 			}
 		};
 
+		if (settings.tabs.length === 0) {
+			for (var i = 0; i < fieldsets.length; i++) {
+				var title = $(fieldsets[i]).find('legend');
+
+				if (title) {
+					settings.tabs.push(title.html());
+				} else {
+					settings.tabs.push('');
+				}
+			}
+		}
 		for (var i = 0; i < settings.tabs.length; i++) {
 			var toAppend = $('<li>').html(settings.tabs[i]);
 			if (i === 0) {
