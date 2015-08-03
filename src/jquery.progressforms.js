@@ -90,6 +90,10 @@
 			} else {
 				$.error('There is no fieldset at index ' + index);
 			}
+		},
+		goToTabId: function(id) {
+			var toGoTo = fieldsets.filter(function() { return $(this).attr('id') === id });
+			methods.goToTab(fieldsets.index(toGoTo));
 		}
 	};
 
