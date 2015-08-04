@@ -193,7 +193,7 @@
 			settings.callbacks.onValidateRequiredFailed(notFilled);
 		} else {
 			$(progressBarDots[currentIndex]).addClass('completed').removeClass('active');
-			var tabClicked = $(progressBar[currentIndex]);
+			var tabClicked = $(fieldsets[currentIndex]);
 			// Increment the current index to the next fieldset
 			currentIndex++;
 
