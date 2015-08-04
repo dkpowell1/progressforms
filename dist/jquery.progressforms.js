@@ -197,8 +197,8 @@
 			// Increment the current index to the next fieldset
 			currentIndex++;
 
-			previousFieldset = currentFieldset;
-			currentFieldset = fieldsets[currentIndex];
+			previousFieldset = $(currentFieldset);
+			currentFieldset = $(fieldsets[currentIndex]);
 			if (previousFieldset) {
 				$(previousFieldset).hide();
 			}
@@ -295,7 +295,7 @@
 			$(currentFieldset).hide();
 			var tabClicked = $(currentFieldset);
 			currentFieldset = previousFieldset;
-			previousFieldset = currentIndex > 0 ? fieldsets[currentIndex - 1] : undefined;
+			previousFieldset = currentIndex > 0 ? $(fieldsets[currentIndex - 1]) : undefined;
 			$(currentFieldset).show();
 			$(progressBarDots[currentIndex]).addClass('active');
 
@@ -337,9 +337,9 @@
 	};
 
 	$.fn.progressforms.defaults = {
-		canClickForward: true,
+		clickForward: false,
 
-		canClickBackward: true,
+		clickBack: false,
 
 		/**
 		 * This array holds the names of each sub-form in the form

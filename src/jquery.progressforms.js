@@ -189,8 +189,8 @@
 			// Increment the current index to the next fieldset
 			currentIndex++;
 
-			previousFieldset = currentFieldset;
-			currentFieldset = fieldsets[currentIndex];
+			previousFieldset = $(currentFieldset);
+			currentFieldset = $(fieldsets[currentIndex]);
 			if (previousFieldset) {
 				$(previousFieldset).hide();
 			}
@@ -287,7 +287,7 @@
 			$(currentFieldset).hide();
 			var tabClicked = $(currentFieldset);
 			currentFieldset = previousFieldset;
-			previousFieldset = currentIndex > 0 ? fieldsets[currentIndex - 1] : undefined;
+			previousFieldset = currentIndex > 0 ? $(fieldsets[currentIndex - 1]) : undefined;
 			$(currentFieldset).show();
 			$(progressBarDots[currentIndex]).addClass('active');
 
