@@ -7,8 +7,9 @@
 	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+	<form>
 	<div class="container" id="progressFormWrapper">
-		<fieldset>
+		<fieldset id="personal">
 			<legend>Personal Information</legend>
 			<div class="fieldgroup">
 				<label for="name">Name:</label>
@@ -36,7 +37,7 @@
 				<span class="required">(required)</span>
 			</div>
 		</fieldset>
-		<fieldset>
+		<fieldset id="address">
 			<legend>Address/Contact Information</legend>
 			<div class="fieldgroup">
 				<label for="country">Country</label>
@@ -115,7 +116,7 @@
 				</div>
 			</div>
 		</fieldset>
-		<fieldset>
+		<fieldset id="demographic">
 			<legend>Demographic Information</legend>
 			<div class="fieldgroup">
 				<label for="hispanic" class="full">Are you hispanic? <span class="required">(required)</span></label>
@@ -155,7 +156,7 @@
 				</div>
 			</div>
 		</fieldset>
-		<fieldset>
+		<fieldset id="interests">
 			<legend>Your Interests</legend>
 			<div class="fieldgroup">
 				<label for="hispanic" class="full">Are you hispanic? <span class="required">(required)</span></label>
@@ -199,7 +200,7 @@
 			<button class="submit">Submit</button>
 		</fieldset>
 	</div>
-
+</form>
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="../dist/jquery.progressforms.js"></script>
 	<script src="js/index.js"></script>
