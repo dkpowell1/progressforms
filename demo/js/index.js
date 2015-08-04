@@ -1,16 +1,12 @@
 $(function() {
 	$('#progressFormWrapper').progressforms({
-		validateRequired: false,
 		validateRequiredFunctions: [
 			// Checks that the emails are valid
 			function(fieldset) {
-			},
-			function(fieldset) { },
-			function(fieldset) {
-				if (!fieldsMatch('#password', '#confirmpassword')) {
-					alert('Passwords must match!');
-					return $('#password');
-				}
+				var password = fieldset.find('#password').val();
+				var confirmpassword = fieldset.find('#confirmpassword').val();
+
+				return password === confirmpassword ? undefined : $('#password');
 			}
 		],
 		callbacks: {
