@@ -1,6 +1,5 @@
 $(function() {
 	$('#progressFormWrapper').progressforms({
-		tabs: ['Personal', 'Contact', 'Your Login', 'Confirmation'],
 		validateRequired: false,
 		validateRequiredFunctions: [
 			// Checks that the emails are valid
@@ -24,11 +23,12 @@ $(function() {
 		},
         ui: {
             createNextButton: function() {
-                return $('<button class="next">').html('Next <i class="fa fa-caret-right"></i>');
+                return $('<button type="button" class="next">').html('Next <i class="fa fa-caret-right"></i>');
             },
             createPrevButton: function() {
-                return $('<button class="prev">').html('<i class="fa fa-caret-left"></i> Previous');
+                return $('<button type="button" class="prev">').html('<i class="fa fa-caret-left"></i> Previous');
             }
         }
 	});
+	$('#progressFormWrapper').progressforms('goToTabId', window.location.hash.slice(1));
 });
