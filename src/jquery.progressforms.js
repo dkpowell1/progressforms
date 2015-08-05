@@ -73,7 +73,7 @@
 			setListSize();
 			addPrevNextButtons();
 			container.addClass('progressformswrapper');
-
+			settings.onInit();
 			return container;
 		},
 		goToTab: function(index) {
@@ -357,6 +357,7 @@
 		 * of the plug in
 		 */
 		callbacks: {
+			onInit: function() {},
 			onNext: function(tabClicked, tabEntered) {},
 			onPrev: function(tabClicked, tabEntered) {},
 			onLastTabEntered: function() {},
