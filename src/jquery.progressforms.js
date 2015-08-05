@@ -69,7 +69,13 @@
 			currentFieldset = $(fieldsets[0]);
 			progressBar = generateProgressBar();
 			progressBarDots = progressBar.find('li');
-			container.prepend(progressBar);
+
+			if (settings.ui.progressBarTarget !== '') {
+				$(settings.ui.progressBarTarget).append(progressBar);
+			} else {
+				container.prepend(progressBar);
+			}
+
 			setListSize();
 			addPrevNextButtons();
 			container.addClass('progressformswrapper');
@@ -376,6 +382,7 @@
 			}
 		},
 		ui: {
+			progressBarTarget: '',
 			createNextButton: function() {
 				return $('<button type="button" class="next">').html("Next");
 			},

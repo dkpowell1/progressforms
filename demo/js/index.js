@@ -21,6 +21,7 @@ $(function() {
 			}
 		},
         ui: {
+			progressBarTarget: '#myProgressBar',
             createNextButton: function() {
                 return $('<button type="button" class="next">').html('Next <i class="fa fa-caret-right"></i>');
             },
