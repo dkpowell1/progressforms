@@ -73,7 +73,7 @@
 			setListSize();
 			addPrevNextButtons();
 			container.addClass('progressformswrapper');
-			settings.onInit();
+			settings.callbacks.onInit();
 			return container;
 		},
 		goToTab: function(index) {
@@ -120,9 +120,13 @@
 			var listItems = container.find('.progressBar li');
 			for (var i = 0; i < listItems.length; i++) {
 				if (listItems[i] === this) {
-					if (i > currentIndex && settings.canClickForward && $(fieldsets[i]).data('previously-validated')) {
-						methods.goToTab(i);
-					} else if (i < currentIndex && settings.canClickBackward) {
+					if (i > currentIndex && settings.clickForward) {
+						if (settings.clickVisitedOnly &&  $(fieldsets[i]).data('previously-validated')) {
+							methods.goToTab(i);
+						} else if (!settings.clickVisitedOnly) {
+							methods.goToTab(i);
+						}
+					} else if (i < currentIndex && settings.clickBack) {
 						methods.goToTab(i);
 					}
 					break;
@@ -146,7 +150,7 @@
 			if (i === 0) {
 				toAppend.addClass('active');
 			}
-			if (settings.canClickForward || settings.canClickBackward) {
+			if (settings.clickForward || settings.clickBack) {
 				toAppend.click(onProgressItemClick);
 			}
 			progressBar.append(toAppend);
@@ -332,6 +336,11 @@
 		clickForward: false,
 
 		clickBack: false,
+
+		/**
+		 * This dictates whether you can only click pages that have been "nexted" through before
+		 */
+		clickVisitedOnly: false,
 
 		/**
 		 * This array holds the names of each sub-form in the form

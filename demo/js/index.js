@@ -1,5 +1,8 @@
 $(function() {
 	$('#progressFormWrapper').progressforms({
+		clickForward: true,
+		clickBack: true,
+		clickVisitedOnly: false,
 		validateRequiredFunctions: [
 			// Checks that the emails are valid
 			function(fieldset) {
