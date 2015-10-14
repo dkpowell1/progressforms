@@ -175,7 +175,7 @@ Progressforms automatically validates that all fields that have the required att
 </div>
 ```
 
-### Demo
+#### Demo
 To see a styled example of the page, clone this project and open up index.html in the browser.
 
 ### Contributors
