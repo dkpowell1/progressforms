@@ -5,11 +5,70 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/progressbar.css">
 	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">	<style>
+	.onoffswitch {
+		display: inline-block;
+	    position: relative; width: 160px;
+	    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+	}
+	.onoffswitch-checkbox {
+	    display: none;
+	}
+	.onoffswitch-label {
+	    display: block; overflow: hidden; cursor: pointer;
+	    border: 2px solid #999999; border-radius: 20px;
+	}
+	.onoffswitch-inner {
+	    display: block; width: 200%; margin-left: -100%;
+	    transition: margin 0.3s ease-in 0s;
+	}
+	.onoffswitch-inner:before, .onoffswitch-inner:after {
+	    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+	    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+	    box-sizing: border-box;
+	}
+	.onoffswitch-inner:before {
+	    content: "ON";
+	    padding-left: 10px;
+	    background-color: #34A7C1; color: #FFFFFF;
+	}
+	.onoffswitch-inner:after {
+	    content: "OFF";
+	    padding-right: 10px;
+	    background-color: #EEEEEE; color: #999999;
+	    text-align: right;
+	}
+	.onoffswitch-switch {
+	    display: block; width: 18px; margin: 6px;
+	    background: #FFFFFF;
+	    position: absolute; top: 0; bottom: 0;
+	    right: 120px;
+	    border: 2px solid #999999; border-radius: 20px;
+	    transition: all 0.3s ease-in 0s;
+		margin-left:0;
+	}
+	.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+	    margin-left: 0;
+	}
+	.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+	    right: 0px;
+	}
+	</style>
 </head>
 <body>
 	<div class="container" id="progressFormWrapper">
 		<fieldset id="personal">
 			<legend>Personal Information</legend>
+			<div class="fieldgroup">
+				<label for="switch">Switch Me:</label>
+				<div class="onoffswitch">
+				    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+				    <label class="onoffswitch-label" for="myonoffswitch">
+				        <span class="onoffswitch-inner"></span>
+				        <span class="onoffswitch-switch"></span>
+				    </label>
+				</div>
+			</div>
 			<div class="fieldgroup">
 				<label for="name">Name:</label>
 				<input name="name" id="name" required>
@@ -40,6 +99,19 @@
 				<label for="yes">Yes: <input type="radio" id="yes" name="yesno" value="Yes"></label>
 				<label for="no">No: <input type="radio" id="no" name="yesno" value="No"></label>
 			</div>
+
+			<fieldset id="hidingWindow">
+				<legend>Testing Hidden Required Fields</legend>
+				<div class="fieldgroup">
+					<label for="testfield1">Testing Required 1:</label>
+					<input name="testfield1" id="testfield1" required>
+				</div>
+				<div class="fieldgroup" data-required="1">
+					<label for="testingradio">Testing Radio 2:</label>
+					<label for="yes2">Yes: <input type="radio" id="ye2s" name="yesno2" value="Yes"></label>
+					<label for="no2">No: <input type="radio" id="no2" name="yesno2" value="No"></label>
+				</div>
+			</fieldset>
 		</fieldset>
 		<fieldset id="address">
 			<legend>Address/Contact Information</legend>

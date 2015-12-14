@@ -30,5 +30,15 @@ $(function() {
             }
         }
 	});
-	$('#progressFormWrapper').progressforms('goToTabId', window.location.hash.slice(1));
+
+	// $('#progressFormWrapper').progressforms('goToTabId', window.location.hash.slice(1));
+
+	$('#myonoffswitch').change(function() {
+		if ($(this).is(':checked')) {
+			$('#hidingWindow').show();
+		} else {
+			$('#hidingWindow').hide();
+		}
+	}).change();
+
 });
