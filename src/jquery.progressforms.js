@@ -243,19 +243,21 @@
 			// Look for check boxes
 			var requiredCheckboxGroups = $(fieldset).find('[data-required]');
 			for (i = 0; i < requiredCheckboxGroups.length; i++) {
-				var numRequired = parseInt($(requiredCheckboxGroups[i]).attr('data-required') || 1);
-				var numChecked = 0;
-				var checkboxes = $(requiredCheckboxGroups[i]).find('input[type="checkbox"],input[type="radio"]');
-				var checked = false;
+				if ($(requiredCheckboxGroups[i]).is(':visible')) {
+					var numRequired = parseInt($(requiredCheckboxGroups[i]).attr('data-required') || 1);
+					var numChecked = 0;
+					var checkboxes = $(requiredCheckboxGroups[i]).find('input[type="checkbox"],input[type="radio"]');
+					var checked = false;
 
-				for (var j = 0; j < checkboxes.length && !checked; j++) {
-					if ($(checkboxes[j]).is(':checked')) {
-						checked = ++numChecked == numRequired;
+					for (var j = 0; j < checkboxes.length && !checked; j++) {
+						if ($(checkboxes[j]).is(':checked')) {
+							checked = ++numChecked == numRequired;
+						}
 					}
-				}
 
-				if (!checked && checkboxes.length > 0) {
-					notFilled = $(checkboxes[0]);
+					if (!checked && checkboxes.length > 0) {
+						notFilled = $(checkboxes[0]);
+					}
 				}
 			}
 		}
