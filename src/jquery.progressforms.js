@@ -245,7 +245,7 @@
 			for (i = 0; i < requiredCheckboxGroups.length; i++) {
 				var numRequired = parseInt($(requiredCheckboxGroups[i]).attr('data-required') || 1);
 				var numChecked = 0;
-				var checkboxes = $(requiredCheckboxGroups[i]).find('input[type="checkbox"]');
+				var checkboxes = $(requiredCheckboxGroups[i]).find('input[type="checkbox"],input[type="radio"]');
 				var checked = false;
 
 				for (var j = 0; j < checkboxes.length && !checked; j++) {
