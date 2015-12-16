@@ -62,20 +62,20 @@ Type: `Boolean` Default: `true`
 When `validateRequired` is enabled, before the form goes to the next page, each [required] field will be checked and returned if no data is inputted. If this is set to false, no validation will occur.
 
 **validateRequiredFunctions**  
-Type: `Array` of `Function` Default: `[]`  
-This array holds extras functions that are used for validation. Each function is essentially a callback that gets called *only after* the default validate function passes. The function at each index in the array corresponds to that of the page in the form. For example, the function at index `0` relates to the first page. Your functions should return the JQuery - HTML Element that caused the error to occur. An example of a valid `validateRequiredFunctions` array is below:  
+Type: `Array` of `Function` Default: `{}`  
+This array holds extra functions that are used for validation. Each function is essentially a callback that gets called *only after* the default validate function passes. In order to specify which function to assign to which page of the form, use the name of the page that will appear in the progress bar which is specified through either the `tabs` property or by the legend that appears at the top of the fieldset. An example of a proper validateRequiredFunctions object is below:
 
 ```javascript
-    var validateRequiredFunctions = [
+    var validateRequiredFunctions = {
         // For page 1
-        function(fieldset) {
+        'Personal Information': function(fieldset) {
             // The fieldset in the parameter is the current fieldset
             var password = fieldset.find('#password');
             if (password.val() !== fieldset.find('#confirm').val()) {
                 return password; // The password field caused the error
             }
         }
-    ]
+    };
 ```
 
 **callbacks**  

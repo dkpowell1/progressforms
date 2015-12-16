@@ -229,7 +229,7 @@
 	function validateRequiredFields(fieldset) {
 		var notFilled;
 		var valid = true;
-
+		var currentTab = progressBar.find('li')[currentIndex].innerHTML;
 		var requiredFields = $(fieldset).find('[required]');
 		var i = 0;
 
@@ -262,8 +262,8 @@
 			}
 		}
 
-		if (!notFilled && typeof settings.validateRequiredFunctions[currentIndex] == 'function') {
-			notFilled = settings.validateRequiredFunctions[currentIndex](fieldset);
+		if (!notFilled && typeof settings.validateRequiredFunctions[currentTab] == 'function') {
+			notFilled = settings.validateRequiredFunctions[currentTab](fieldset);
 		}
 
 		return notFilled;
@@ -366,8 +366,12 @@
 		 *
 		 * The signature of the functions passed in should be
 		 *     function(currentFieldset):object
+		 *
+		 * The key in the key-value pairs should be the name of the form either specified in the
+		 * tabs array or by the legend in the fieldset.  HINT: The key will appear in the the
+		 * progress bar that gets generated above.
 		 */
-		validateRequiredFunctions: [],
+		validateRequiredFunctions: {},
 
 		/**
 		 * This object holds all the callbacks that are fired during the lifetime

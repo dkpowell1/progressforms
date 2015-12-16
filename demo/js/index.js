@@ -1,17 +1,18 @@
 $(function() {
+	var verifyPassword = function(fieldset) {
+		var password = fieldset.find('#password').val();
+		var confirmpassword = fieldset.find('#confirmpassword').val();
+		if (password !== confirmpassword) alert("Passwords must match!");
+		return password === confirmpassword ? undefined : $('#password');
+	};
+
 	$('#progressFormWrapper').progressforms({
 		clickForward: true,
 		clickBack: true,
 		clickVisitedOnly: false,
-		validateRequiredFunctions: [
-			// Checks that the emails are valid
-			function(fieldset) {
-				var password = fieldset.find('#password').val();
-				var confirmpassword = fieldset.find('#confirmpassword').val();
-
-				return password === confirmpassword ? undefined : $('#password');
-			}
-		],
+		validateRequiredFunctions: {
+			'Personal Information': verifyPassword
+		},
 		callbacks: {
 			onValidateRequiredFailed: function(notFilled) {
 				notFilled.addClass('validate-failed');
